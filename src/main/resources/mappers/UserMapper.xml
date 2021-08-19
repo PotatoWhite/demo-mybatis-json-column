@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="me.potato.demomybatisjsoncolumn.repositories.UserRepository">
+    <resultMap id="_user" type="User">
+        <result property="contact" column="contact" javaType="Contact" typeHandler="ContactTypeHandler"/>
+    </resultMap>
+
+    <select id="selectUsers" resultMap="_user">
+        SELECT id,
+               name,
+               email,
+               contact
+        FROM users
+    </select>
+
+    <insert id="createUser" parameterType="User">
+        INSERT INTO users (name, email, contact)
+        Values (#{name}, #{email}, #{contact, typeHandler=ContactTypeHandler})
+    </insert>
+</mapper>
