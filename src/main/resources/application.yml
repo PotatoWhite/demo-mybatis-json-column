@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: org.h2.Driver
-#    generate-unique-name: false
+  #    generate-unique-name: false
   h2:
     console:
       enabled: true
@@ -12,4 +12,3 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true
   type-aliases-package: me.potato.demomybatisjsoncolumn.entities
-  type-handlers-package: me.potato.demomybatisjsoncolumn.typehandlers

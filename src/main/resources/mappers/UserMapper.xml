@@ -3,7 +3,7 @@
 
 <mapper namespace="me.potato.demomybatisjsoncolumn.repositories.UserRepository">
     <resultMap id="_user" type="User">
-        <result property="contact" column="contact" javaType="Contact" typeHandler="ContactTypeHandler"/>
+        <result property="contact" column="contact" javaType="Contact" typeHandler="me.potato.demomybatisjsoncolumn.typehandlers.ContactTypeHandler"/>
     </resultMap>
 
     <select id="selectUsers" resultMap="_user">
@@ -16,6 +16,6 @@
 
     <insert id="createUser" parameterType="User">
         INSERT INTO users (name, email, contact)
-        Values (#{name}, #{email}, #{contact, typeHandler=ContactTypeHandler})
+        Values (#{name}, #{email}, #{contact, typeHandler=me.potato.demomybatisjsoncolumn.typehandlers.ContactTypeHandler})
     </insert>
 </mapper>

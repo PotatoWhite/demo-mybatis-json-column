@@ -14,11 +14,12 @@ import java.sql.SQLException;
 
 public class JsonTypeHandler<T> extends BaseTypeHandler<T> {
     private static final ObjectMapper objectMapper;
-    private final Class<T> type;
 
     static {
         objectMapper = new ObjectMapper();
     }
+
+    private final Class<T> type;
 
     public JsonTypeHandler(Class<T> type) {
         this.type = type;
